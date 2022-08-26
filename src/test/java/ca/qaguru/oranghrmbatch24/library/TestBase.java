@@ -10,7 +10,7 @@ import org.testng.annotations.*;
 public abstract class TestBase {
     protected WebDriver driver;
     protected String browser;
-    protected final String BASE_URL = "https://opensource-demo.orangehrmlive.com";
+    protected final String BASE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
     @BeforeSuite
     public void beforeSuite(){
         WebDriverManager.chromedriver().setup();

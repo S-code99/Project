@@ -13,8 +13,8 @@ public class EducationTests extends TestBase {
 @Test
 public void addNewEducation() {
     LoginPage loginPage = new LoginPage(driver);
-    loginPage.login("admin", "admin123", true, null);
-    HeaderPage headerPage = new HeaderPage(driver);
+    loginPage.login("Admin", "admin123", true, null);
+   HeaderPage headerPage = new HeaderPage(driver);
     headerPage.selectMenu(MenuOptions.EDUCATION);
     EducationPage educationPage = new EducationPage(driver);
     educationPage.saveNewEducation("Level1");

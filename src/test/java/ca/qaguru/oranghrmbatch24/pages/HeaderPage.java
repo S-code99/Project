@@ -14,9 +14,10 @@ import java.util.List;
 @Slf4j
 public class HeaderPage extends PageBase {
     private String lblWelcome = "//*[@id='welcome']";
-    private String mnuItem = "//*[@id='mainMenu']//descendant::*[text()='XXX']";
-    private String idMenu = "mainMenu";
-
+   // private String mnuItem = "//*[@class='oxd-main-menu']//descendant::*[text()='XXX']";
+    private String mnuItem ="//*[@class='oxd-main-menu']//descendant::*[text()='XXX']";
+    //private String idMenu = "//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul";
+   private String idMenu  ="oxd-main-menu";
     public HeaderPage(WebDriver driver) {
         super(driver);
     }
@@ -32,7 +33,8 @@ public class HeaderPage extends PageBase {
         for (String item:menuItems){
             menuLevel++;
             By byMenu = By.xpath(mnuItem.replace("XXX",item));
-            Rectangle rectangle = getRect(byMenu);
+            System.out.println(byMenu);
+             Rectangle rectangle = getRect(byMenu);
             log.debug("Menu item coordinates- X1:{}, Y1:{}, X2 :{}, Y2 :{}", rectangle.getX(),rectangle.getY(),
                     rectangle.getX()+rectangle.getWidth(), rectangle.getY()+rectangle.getHeight());
 
@@ -40,9 +42,10 @@ public class HeaderPage extends PageBase {
             sleep(MENU_SELECTION_DELAY);
             click(byMenu);
             if(menuLevel==1) {
-                int yOffset = rectangle.getY() + rectangle.height+10;
+               int yOffset = rectangle.getY() + rectangle.height+10;
                 if(yOffset>dimension.height){
                     yOffset = dimension.height-1;
+
                 }
                 mouseMove(rectangle.getX(), yOffset);
             }
@@ -50,7 +53,7 @@ public class HeaderPage extends PageBase {
 
     }
     public boolean isMenuVisible(){
-        return isElementVisible(By.id(idMenu));
+        return isElementVisible(By.className(idMenu));
     }
 
 }
