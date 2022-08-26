@@ -14,9 +14,7 @@ import java.util.List;
 @Slf4j
 public class HeaderPage extends PageBase {
     private String lblWelcome = "//*[@id='welcome']";
-   // private String mnuItem = "//*[@class='oxd-main-menu']//descendant::*[text()='XXX']";
     private String mnuItem ="//*[@class='oxd-main-menu']//descendant::*[text()='XXX']";
-    //private String idMenu = "//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul";
    private String idMenu  ="oxd-main-menu";
     public HeaderPage(WebDriver driver) {
         super(driver);
